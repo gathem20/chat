@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <script src="js/login.js" defer></script>
+    <script src="js/show-password.js" defer></script>
+    <div class="wrapper">
+      <section class="form login">
+        <header>realtime chat app</header>
+        <form action="/login" method="post">
+          <div class="error-txt"></div>
+          <div class="field input">
+            <label for="">email address</label>
+            <input
+            id="email"
+            name="email"
+              class="email-password"
+              type="email"
+              placeholder="enter your email address"
+              required
+            />
+          </div>
+          <div class="field input">
+            <label for="">password</label>
+            <input
+            id="password"
+            name="password"
+              class="email-password"
+              type="password"
+              placeholder="Enter Your password"
+              required
+            />
+            <button class="btn">show</button>
+          </div>
+          <div class="field input">
+            <input type="submit" value="log in" />
+          </div>
+        </form>
+        <div class="link">
+          <p>signed up Now? <a href="/">SignUp</a></p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

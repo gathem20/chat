@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <!-- <script src="js/index.js" defer></script> -->
+  </head>
+  <body>
+    <script src="js/signup.js" defer></script>
+    <script src="js/show-password.js" defer></script>
+    <div class="wrapper">
+      <section class="form signup">
+        <header>realtime chat app</header>
+        <form action="/signup" method="post">
+          <div class="error-txt"></div>
+          <div class="name-details">
+            <div class="field input">
+              <label>first name</label>
+              <input
+                type="text"
+                placeholder="first name"
+                required
+                name=""
+                id="firstName"
+              />
+            </div>
+            <div class="field input">
+              <label>last name</label>
+              <input
+                type="text"
+                placeholder="last name"
+                required
+                name=""
+                id="lastName"
+              />
+            </div>
+          </div>
+          <div class="field input">
+            <label for="">email address</label>
+            <input
+              name="email"
+              id="email"
+              type="email"
+              placeholder="enter your email address"
+              required
+            />
+          </div>
+          <div class="field input">
+            <label for="">password</label>
+            <input
+              type="password"
+              placeholder="Enter Your password"
+              required
+              name="password"
+              id="password"
+            />
+            <button class="btn">show</button>
+          </div>
+          <div class="field input image">
+            <label for="">select image</label>
+            <input type="file" name="image" id="image" />
+          </div>
+          <div class="field input btn2">
+            <input type="submit" value="continue to chat" />
+          </div>
+        </form>
+        <div class="link">
+          <p>Already signed up ?<a href="index.html">Login now</a></p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
