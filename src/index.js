@@ -1,10 +1,13 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
+const path = require("path");
 const compression = require("compression");
 const collection = require("./config");
 // const electron = require("electron");
+
 const app = express();
+app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 app.use(cors());
 app.use(compression());
@@ -15,6 +18,7 @@ app.use(express.static("public"));
 app.get("/signup", (req, res) => {
   res.render("/signup");
 });
+
 try {
   app.post("/signup", async (req, res) => {
     const data = {
