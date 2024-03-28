@@ -40,7 +40,7 @@ try {
     } else {
       const saltround = 10;
       const hashPassword = await bcrypt.hash(data.password, saltround);
-      console.log(hashPassword);
+
       const userdata = await collection.insertMany(data);
       console.log(userdata);
       data.password = hashPassword;
@@ -51,7 +51,7 @@ try {
   res.status(500).send({ error: err });
 }
 //login
-
+app.use(express.static(path.join(__dirname, "../public")));
 app.get("/login", (req, res) => {
   res.render("login");
 });
