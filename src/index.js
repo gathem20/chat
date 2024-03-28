@@ -12,11 +12,13 @@ app.set("view engine", "ejs");
 app.use(cors());
 app.use(compression());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "../public")));
+// app.use(express.static("public"));
+
 app.get("/signup", (req, res) => {
-  res.render("/signup");
+  res.render("signup");
 });
 
 try {
@@ -37,10 +39,11 @@ try {
       });
     } else {
       const saltround = 10;
-      const hashpassword = await bcrypt(data.password, saltround);
+      const hashPassword = await bcrypt.hash(data.password, saltround);
+      console.log(hashPassword);
       const userdata = await collection.insertMany(data);
       console.log(userdata);
-      data.password = hashpassword;
+      data.password = hashPassword;
       res.render("login");
     }
   });
@@ -50,7 +53,7 @@ try {
 //login
 
 app.get("/login", (req, res) => {
-  res.render("/login");
+  res.render("login");
 });
 
 try {
@@ -63,11 +66,11 @@ try {
         req.body.password,
         check.password
       );
-    }
-    if (isPassword) {
-      res.render("users");
-    } else {
-      res.send("Try Again!");
+      if (isPassword) {
+        res.render("users");
+      } else {
+        res.send("Try Again!");
+      }
     }
   });
 } catch (err) {
